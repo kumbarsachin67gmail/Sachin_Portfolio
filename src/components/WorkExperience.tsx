@@ -1,11 +1,41 @@
-
-import React from 'react';
-import { Calendar, MapPin, Users, Code, Database, Server } from 'lucide-react';
+import React from "react";
+import { Calendar, MapPin, Users, Code, Database, Server } from "lucide-react";
 
 const WorkExperience = () => {
   const experiences = [
     {
       id: 1,
+      title: "Full Stack Developer - AI Notes",
+      company: "Korn-Ferry | Ispace",
+      location: "Remote",
+      duration: "2024-Mar - Present",
+      type: "Full-time",
+      achievements: [
+        "Implemented AI Assist functionality (KF Intelligence) for Assessor Notes (AN, CFT, PFT) using OpenAI, with modifiers like 'Make it Longer', 'Summarize', etc.",
+        "Added role-based validation for AI modifiers and operators, dynamically adjusting prompts based on user roles",
+        "Upgraded GPT version from 3.5 to 4.0 with integrated guardrails to align with Korn Ferry's security policies",
+      ],
+      technologies: ["Node.js", "SQL", "React", "CSS", "OpenAI"],
+    },
+    {
+      id: 2,
+      title: "Full Stack Developer - Smartsheet Integrations",
+      company: "Korn-Ferry | Ispace",
+      location: "Remote",
+      duration: "2024-Jun - Present",
+      type: "Full-time",
+      achievements: [
+        "Built Smartsheet UI features like sheet listing, unsharing, creating project plans, and dynamic row addition",
+        "Implemented hydration queries for Deployment and Integration Tracker modules",
+        "Worked with DB team to incorporate queries into stored procedures",
+        "Contributed to both client-side and server-side development for CLA Smartsheet features",
+        "Analyzed and enabled remaining sheets for development",
+        "Currently working on dashboards and reports",
+      ],
+      technologies: ["Node.js", "SQL", "React", "Redux", "CSS", "Smartsheet"],
+    },
+    {
+      id: 3,
       title: "Fullstack Engineer, Backend Developer",
       company: "Edvoy Technologies",
       location: "Chennai",
@@ -17,12 +47,20 @@ const WorkExperience = () => {
         "Followed Domain-Driven Design principles for modular and maintainable code",
         "Led a team of 4 developers, overseeing task assignment and ensuring timely delivery while providing technical guidance and mentorship",
         "Additionally, developed Elasticsearch-based Dashboard, collaborated on Business Requirements with UI developers",
-        "Provided aligned technical solutions through stakeholder collaboration"
+        "Provided aligned technical solutions through stakeholder collaboration",
       ],
-      technologies: ["Nest.js", "Node.js", "MongoDB", "Redis", "RabbitMQ", "Elasticsearch", "Microservices"]
+      technologies: [
+        "Nest.js",
+        "Node.js",
+        "MongoDB",
+        "Redis",
+        "RabbitMQ",
+        "Elasticsearch",
+        "Microservices",
+      ],
     },
     {
-      id: 2,
+      id: 4,
       title: "Jr Fullstack Engineer",
       company: "Edvoy Technologies",
       location: "Chennai",
@@ -31,12 +69,17 @@ const WorkExperience = () => {
       achievements: [
         "Developed a customizable table data system utilizing Nest.js pub/sub model and file stream concepts",
         "Implemented personalized views with filtering capabilities, allowing users to create custom or standard views and export data seamlessly",
-        "Led the design and development of client and server code, ensuring seamless functionality and optimal user experience"
+        "Led the design and development of client and server code, ensuring seamless functionality and optimal user experience",
       ],
-      technologies: ["Nest.js", "TypeScript", "File Streaming", "Pub/Sub Pattern"]
+      technologies: [
+        "Nest.js",
+        "TypeScript",
+        "File Streaming",
+        "Pub/Sub Pattern",
+      ],
     },
     {
-      id: 3,
+      id: 5,
       title: "Networking and Embedded System Intern",
       company: "Azure Skynet Solutions Pvt. Ltd, Vitvara Technologies",
       location: "Remote",
@@ -45,14 +88,24 @@ const WorkExperience = () => {
       achievements: [
         "Conducted packet analysis with Wireshark, completed CCNA projects in Cisco Packet Tracer",
         "Implemented MySQL and PHP API projects for automatic door control, railway crossing gate control, and home automation",
-        "Gained hands-on experience with networking protocols and embedded systems integration"
+        "Gained hands-on experience with networking protocols and embedded systems integration",
       ],
-      technologies: ["Wireshark", "CCNA", "MySQL", "PHP", "Embedded Systems", "IoT"]
-    }
+      technologies: [
+        "Wireshark",
+        "CCNA",
+        "MySQL",
+        "PHP",
+        "Embedded Systems",
+        "IoT",
+      ],
+    },
   ];
 
   return (
-    <section id="experience" className="py-16 px-6 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section
+      id="experience"
+      className="py-16 px-6 bg-gradient-to-br from-slate-50 to-blue-50"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -60,7 +113,7 @@ const WorkExperience = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
         </div>
-        
+
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <div key={exp.id} className="relative">
@@ -68,10 +121,10 @@ const WorkExperience = () => {
               {index !== experiences.length - 1 && (
                 <div className="absolute left-8 top-20 w-0.5 h-full bg-gradient-to-b from-blue-300 to-purple-300 hidden md:block"></div>
               )}
-              
+
               {/* Timeline dot */}
               <div className="absolute left-6 top-8 w-4 h-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
-              
+
               <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 md:ml-16 border border-gray-100">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                   <div className="flex-1">
@@ -94,10 +147,12 @@ const WorkExperience = () => {
                     </div>
                   </div>
                   <div className="bg-gradient-to-r from-blue-100 to-purple-100 px-4 py-2 rounded-full">
-                    <span className="text-sm font-semibold text-blue-800">{exp.type}</span>
+                    <span className="text-sm font-semibold text-blue-800">
+                      {exp.type}
+                    </span>
                   </div>
                 </div>
-                
+
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
                     <Users size={20} className="text-blue-600" />
@@ -107,12 +162,14 @@ const WorkExperience = () => {
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-700 leading-relaxed">{achievement}</span>
+                        <span className="text-gray-700 leading-relaxed">
+                          {achievement}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                
+
                 <div>
                   <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
                     <Server size={20} className="text-green-600" />
@@ -120,7 +177,10 @@ const WorkExperience = () => {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 text-sm rounded-full border border-gray-200 hover:shadow-md transition-shadow">
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 text-sm rounded-full border border-gray-200 hover:shadow-md transition-shadow"
+                      >
                         {tech}
                       </span>
                     ))}
