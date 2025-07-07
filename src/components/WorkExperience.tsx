@@ -7,7 +7,7 @@ const WorkExperience = () => {
       id: 1,
       title: "Full Stack Developer - AI Notes & Smartsheet Integrations",
       company: "Korn-Ferry | Ispace",
-      location: "Remote",
+      location: "Hyderabad",
       duration: "2024-Mar - Present",
       type: "Full-time",
       achievements: [
