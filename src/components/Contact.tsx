@@ -1,56 +1,92 @@
 import React from "react";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Copy, ArrowUpRight } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import { Stagger, StaggerItem } from "./motion/Reveal";
+import { SITE, copyEmail } from "@/lib/site";
+
+const cardClass =
+  "group flex h-full w-full flex-col items-center gap-3 rounded-2xl border bg-card text-card-foreground p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand/50 hover:shadow-lg motion-reduce:transform-none";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-16 px-6 bg-gray-50">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-          Contact
-        </h2>
+    <section
+      id="contact"
+      aria-labelledby="contact-title"
+      className="py-20 px-6"
+    >
+      <div className="max-w-5xl mx-auto">
+        <SectionHeading
+          id="contact-title"
+          title="Contact"
+          subtitle="Open to conversations about backend, distributed systems and AI-powered products."
+        />
 
-        <div className="space-y-6">
-          <div className="flex items-center justify-center space-x-3 text-gray-600 hover:text-gray-900 transition-colors">
-            <Mail size={20} />
-            <a
-              href="mailto:kumbarsachin67@gmail.com"
-              className="text-lg underline hover:text-blue-600 transition-colors"
+        <Stagger as="ul" className="grid gap-6 sm:grid-cols-3">
+          <StaggerItem as="li">
+            <button
+              type="button"
+              onClick={copyEmail}
+              aria-label={`Copy email address ${SITE.email}`}
+              className={cardClass}
             >
-              Email: kumbarsachin67@gmail.com
-            </a>
-          </div>
+              <span className="rounded-full bg-accent p-3 text-brand">
+                <Mail size={22} aria-hidden="true" />
+              </span>
+              <span className="font-semibold">Email</span>
+              <span className="text-sm text-muted-foreground break-all">
+                {SITE.email}
+              </span>
+              <span className="mt-auto inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground group-hover:text-brand">
+                <Copy size={14} aria-hidden="true" /> click to copy
+              </span>
+            </button>
+          </StaggerItem>
 
-          <div className="flex items-center justify-center space-x-3 text-gray-600 hover:text-gray-900 transition-colors">
-            <Linkedin size={20} />
+          <StaggerItem as="li">
             <a
-              href="https://www.linkedin.com/in/sachin-kumbar-634b42171/"
+              href={SITE.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg underline hover:text-blue-600 transition-colors"
+              className={cardClass}
             >
-              LinkedIn: https://www.linkedin.com/in/sachin-kumbar-634b42171/
+              <span className="rounded-full bg-accent p-3 text-brand">
+                <Linkedin size={22} aria-hidden="true" />
+              </span>
+              <span className="font-semibold">LinkedIn</span>
+              <span className="text-sm text-muted-foreground">
+                sachin-kumbar-634b42171
+              </span>
+              <span className="mt-auto inline-flex items-center gap-1 font-mono text-xs text-muted-foreground group-hover:text-brand">
+                open profile <ArrowUpRight size={14} aria-hidden="true" />
+              </span>
             </a>
-          </div>
+          </StaggerItem>
 
-          <div className="flex items-center justify-center space-x-3 text-gray-600 hover:text-gray-900 transition-colors">
-            <Github size={20} />
+          <StaggerItem as="li">
             <a
-              href="https://github.com/kumbarsachin67gmail"
+              href={SITE.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg underline hover:text-blue-600 transition-colors"
+              className={cardClass}
             >
-              GitHub: https://github.com/kumbarsachin67gmail
+              <span className="rounded-full bg-accent p-3 text-brand">
+                <Github size={22} aria-hidden="true" />
+              </span>
+              <span className="font-semibold">GitHub</span>
+              <span className="text-sm text-muted-foreground">
+                kumbarsachin67gmail
+              </span>
+              <span className="mt-auto inline-flex items-center gap-1 font-mono text-xs text-muted-foreground group-hover:text-brand">
+                view repos <ArrowUpRight size={14} aria-hidden="true" />
+              </span>
             </a>
-          </div>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <p className="text-gray-500">
-            © 2025 Sachin Kumbar. All rights reserved.
-          </p>
-        </div>
+          </StaggerItem>
+        </Stagger>
       </div>
+
+      <footer className="max-w-5xl mx-auto mt-16 pt-8 border-t text-center text-sm text-muted-foreground">
+        © {new Date().getFullYear()} Sachin Kumbar. All rights reserved.
+      </footer>
     </section>
   );
 };
