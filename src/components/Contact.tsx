@@ -26,7 +26,6 @@ const Contact = () => {
             <button
               type="button"
               onClick={copyEmail}
-              aria-label={`Copy email address ${SITE.email}`}
               className={cardClass}
             >
               <span className="rounded-full bg-accent p-3 text-brand">

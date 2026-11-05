@@ -169,7 +169,6 @@ const Hero = () => {
                   <button
                     type="button"
                     onClick={copyEmail}
-                    aria-label={`Copy email address ${SITE.email}`}
                     className="group flex w-full items-center gap-4 p-4 bg-white/5 rounded-lg text-left transition-colors hover:bg-white/10"
                   >
                     <span className="p-2 bg-blue-500 rounded-full">

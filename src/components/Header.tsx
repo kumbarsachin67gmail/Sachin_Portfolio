@@ -121,7 +121,6 @@ const Header = ({ onOpenPalette }: HeaderProps) => {
             <button
               type="button"
               onClick={onOpenPalette}
-              aria-label="Open command palette"
               aria-keyshortcuts={IS_MAC ? "Meta+K" : "Control+K"}
               className={cn(
                 "flex items-center gap-2 rounded-full p-2 sm:px-3 transition-colors",
@@ -129,6 +128,7 @@ const Header = ({ onOpenPalette }: HeaderProps) => {
               )}
             >
               <Search size={16} aria-hidden="true" />
+              <span className="sr-only">Open command palette</span>
               <kbd className="hidden sm:inline font-mono text-xs">
                 {IS_MAC ? "⌘K" : "Ctrl K"}
               </kbd>

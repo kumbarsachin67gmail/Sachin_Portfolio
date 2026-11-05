@@ -111,7 +111,7 @@ const WorkExperience = () => {
     <section
       id="experience"
       aria-labelledby="experience-title"
-      className="py-20 px-6 bg-muted/40"
+      className="py-20 px-4 sm:px-6 bg-muted/40"
     >
       <div className="max-w-5xl mx-auto">
         <SectionHeading id="experience-title" title="Work Experience" />
@@ -132,7 +132,7 @@ const WorkExperience = () => {
             {experiences.map((exp) => (
               <motion.li
                 key={exp.id}
-                className="relative pl-10 md:pl-14"
+                className="relative pl-9 md:pl-14"
                 initial={reduce ? false : { opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={VIEWPORT}
@@ -144,7 +144,7 @@ const WorkExperience = () => {
                   className="absolute left-0 top-7 h-6 w-6 rounded-full border-4 border-background bg-gradient-to-br from-brand to-brand-2 shadow-md"
                 />
 
-                <article className="bg-card text-card-foreground rounded-xl border shadow-sm hover:shadow-lg transition-shadow duration-300 p-6 md:p-8">
+                <article className="bg-card text-card-foreground rounded-xl border shadow-sm hover:shadow-lg transition-shadow duration-300 p-5 md:p-8">
                   <header className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between mb-5">
                     <div>
                       <h3 className="text-xl md:text-2xl font-bold mb-2">
@@ -154,7 +154,7 @@ const WorkExperience = () => {
                         <span className="flex items-center gap-2">
                           <Building2
                             size={16}
-                            className="text-brand"
+                            className="shrink-0 text-brand"
                             aria-hidden="true"
                           />
                           <span className="font-semibold text-foreground">
