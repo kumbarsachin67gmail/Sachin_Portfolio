@@ -1,189 +1,209 @@
-import React from "react";
-import { Calendar, MapPin, Users, Code, Database, Server } from "lucide-react";
+import React, { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { Calendar, MapPin, Building2 } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import { EASE_OUT, VIEWPORT } from "@/lib/motion";
+
+const experiences = [
+  {
+    id: 1,
+    title: "Senior Software Engineer",
+    company: "iSpace Technologies (Client: Korn Ferry, KFAdvance)",
+    location: "Hyderabad",
+    duration: "Feb 2024 – Present",
+    type: "Full-time",
+    achievements: [
+      "Browser-based PowerPoint generation engine (React + JSZip) that dynamically fills branded templates with editable text, native tables, charts and images; version-controlled templates on AWS S3",
+      "Built the Smartsheet integration from scratch: EU and US region compliance, multi-template workflows, real-time job tracking",
+      "AI-powered notes editor with OpenAI / Azure OpenAI for summarization, tone adjustment and perspective transformation",
+      "Event-driven consent workflows on AWS EventBridge; configurable report system with PDF generation; secure document delivery with S3 signed URLs and RBAC",
+    ],
+    technologies: [
+      "Node.js",
+      "React",
+      "Redux",
+      "SQL",
+      "JSZip",
+      "OpenAI",
+      "Azure OpenAI",
+      "AWS S3",
+      "AWS EventBridge",
+      "Smartsheet",
+    ],
+  },
+  {
+    id: 3,
+    title: "Fullstack Engineer, Backend Developer",
+    company: "Edvoy Technologies",
+    location: "Chennai",
+    duration: "Jun 2021 – Jan 2024",
+    type: "Full-time",
+    achievements: [
+      "Implemented backend solutions using Nest.js and Node.js, utilized MongoDB for database management, developed microservices architecture for scalability",
+      "Integrated RMQ and Redis for efficient message queuing and caching, designed event-driven systems for asynchronous communication",
+      "Followed Domain-Driven Design principles for modular and maintainable code",
+      "Led a team of 4 developers, overseeing task assignment and ensuring timely delivery while providing technical guidance and mentorship",
+      "Additionally, developed Elasticsearch-based Dashboard, collaborated on Business Requirements with UI developers",
+      "Provided aligned technical solutions through stakeholder collaboration",
+    ],
+    technologies: [
+      "Nest.js",
+      "Node.js",
+      "MongoDB",
+      "Redis",
+      "RabbitMQ",
+      "Elasticsearch",
+      "Microservices",
+    ],
+  },
+  {
+    id: 4,
+    title: "Jr Fullstack Engineer",
+    company: "Edvoy Technologies",
+    location: "Chennai",
+    duration: "Nov 2020 – May 2021",
+    type: "Full-time",
+    achievements: [
+      "Developed a customizable table data system utilizing Nest.js pub/sub model and file stream concepts",
+      "Implemented personalized views with filtering capabilities, allowing users to create custom or standard views and export data seamlessly",
+      "Led the design and development of client and server code, ensuring seamless functionality and optimal user experience",
+    ],
+    technologies: [
+      "Nest.js",
+      "TypeScript",
+      "File Streaming",
+      "Pub/Sub Pattern",
+    ],
+  },
+  {
+    id: 5,
+    title: "Networking and Embedded System Intern",
+    company: "Azure Skynet Solutions Pvt. Ltd, Vitvara Technologies",
+    location: "Remote",
+    duration: "May 2018 – Jun 2018",
+    type: "Internship",
+    achievements: [
+      "Conducted packet analysis with Wireshark, completed CCNA projects in Cisco Packet Tracer",
+      "Implemented MySQL and PHP API projects for automatic door control, railway crossing gate control, and home automation",
+      "Gained hands-on experience with networking protocols and embedded systems integration",
+    ],
+    technologies: [
+      "Wireshark",
+      "CCNA",
+      "MySQL",
+      "PHP",
+      "Embedded Systems",
+      "IoT",
+    ],
+  },
+];
 
 const WorkExperience = () => {
-  const experiences = [
-    {
-      id: 1,
-      title: "Full Stack Developer - AI Notes & Smartsheet Integrations",
-      company: "Korn-Ferry | Ispace",
-      location: "Hyderabad",
-      duration: "2024-Mar - Present",
-      type: "Full-time",
-      achievements: [
-        "Developed and integrated AI-powered features for enterprise note-taking and workflow automation, leveraging OpenAI and advanced prompt engineering.",
-        "Implemented robust role-based access controls and dynamic user experiences across multiple modules.",
-        "Upgraded and maintained AI infrastructure, ensuring compliance with security and quality standards.",
-        "Designed and built scalable UI components and data management features for project planning and reporting.",
-        "Collaborated with cross-functional teams to optimize backend processes, database queries, and deployment workflows.",
-        "Contributed to both client-side and server-side development, supporting ongoing enhancements and dashboard/reporting solutions.",
-        "Worked on multiple 3rd party integrations including OpenAI, Smartsheet, and CMS platforms.",
-      ],
-      technologies: [
-        "Node.js",
-        "SQL",
-        "React",
-        "CSS",
-        "OpenAI",
-        "Redux",
-        "Smartsheet",
-      ],
-    },
-    {
-      id: 3,
-      title: "Fullstack Engineer, Backend Developer",
-      company: "Edvoy Technologies",
-      location: "Chennai",
-      duration: "2021-Jun - 2024-Jan",
-      type: "Full-time",
-      achievements: [
-        "Implemented backend solutions using Nest.js and Node.js, utilized MongoDB for database management, developed microservices architecture for scalability",
-        "Integrated RMQ and Redis for efficient message queuing and caching, designed event-driven systems for asynchronous communication",
-        "Followed Domain-Driven Design principles for modular and maintainable code",
-        "Led a team of 4 developers, overseeing task assignment and ensuring timely delivery while providing technical guidance and mentorship",
-        "Additionally, developed Elasticsearch-based Dashboard, collaborated on Business Requirements with UI developers",
-        "Provided aligned technical solutions through stakeholder collaboration",
-      ],
-      technologies: [
-        "Nest.js",
-        "Node.js",
-        "MongoDB",
-        "Redis",
-        "RabbitMQ",
-        "Elasticsearch",
-        "Microservices",
-      ],
-    },
-    {
-      id: 4,
-      title: "Jr Fullstack Engineer",
-      company: "Edvoy Technologies",
-      location: "Chennai",
-      duration: "Nov 2020 - May 2021",
-      type: "Full-time",
-      achievements: [
-        "Developed a customizable table data system utilizing Nest.js pub/sub model and file stream concepts",
-        "Implemented personalized views with filtering capabilities, allowing users to create custom or standard views and export data seamlessly",
-        "Led the design and development of client and server code, ensuring seamless functionality and optimal user experience",
-      ],
-      technologies: [
-        "Nest.js",
-        "TypeScript",
-        "File Streaming",
-        "Pub/Sub Pattern",
-      ],
-    },
-    {
-      id: 5,
-      title: "Networking and Embedded System Intern",
-      company: "Azure Skynet Solutions Pvt. Ltd, Vitvara Technologies",
-      location: "Remote",
-      duration: "May 2018 - Jun 2018",
-      type: "Internship",
-      achievements: [
-        "Conducted packet analysis with Wireshark, completed CCNA projects in Cisco Packet Tracer",
-        "Implemented MySQL and PHP API projects for automatic door control, railway crossing gate control, and home automation",
-        "Gained hands-on experience with networking protocols and embedded systems integration",
-      ],
-      technologies: [
-        "Wireshark",
-        "CCNA",
-        "MySQL",
-        "PHP",
-        "Embedded Systems",
-        "IoT",
-      ],
-    },
-  ];
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 75%", "end 60%"],
+  });
+  const lineScale = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
 
   return (
     <section
       id="experience"
-      className="py-16 px-6 bg-gradient-to-br from-slate-50 to-blue-50"
+      aria-labelledby="experience-title"
+      className="py-20 px-6 bg-muted/40"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Work Experience
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-        </div>
+      <div className="max-w-5xl mx-auto">
+        <SectionHeading id="experience-title" title="Work Experience" />
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <div key={exp.id} className="relative">
-              {/* Timeline line */}
-              {index !== experiences.length - 1 && (
-                <div className="absolute left-8 top-20 w-0.5 h-full bg-gradient-to-b from-blue-300 to-purple-300 hidden md:block"></div>
-              )}
+        <div ref={timelineRef} className="relative">
+          {/* Timeline track and the line that draws itself on scroll */}
+          <div
+            aria-hidden="true"
+            className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-border"
+          />
+          <motion.div
+            aria-hidden="true"
+            className="absolute left-[11px] top-2 bottom-2 w-0.5 origin-top bg-gradient-to-b from-brand to-brand-2"
+            style={{ scaleY: reduce ? 1 : lineScale }}
+          />
 
-              {/* Timeline dot */}
-              <div className="absolute left-6 top-8 w-4 h-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
+          <ol className="relative space-y-10">
+            {experiences.map((exp) => (
+              <motion.li
+                key={exp.id}
+                className="relative pl-10 md:pl-14"
+                initial={reduce ? false : { opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={VIEWPORT}
+                transition={{ duration: 0.6, ease: EASE_OUT }}
+              >
+                {/* Timeline dot */}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-7 h-6 w-6 rounded-full border-4 border-background bg-gradient-to-br from-brand to-brand-2 shadow-md"
+                />
 
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 md:ml-16 border border-gray-100">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      {exp.title}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-4">
-                      <div className="flex items-center gap-2">
-                        <Code size={18} className="text-blue-600" />
-                        <span className="font-semibold">{exp.company}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin size={18} className="text-green-600" />
-                        <span>{exp.location}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Calendar size={18} className="text-purple-600" />
-                        <span>{exp.duration}</span>
+                <article className="bg-card text-card-foreground rounded-xl border shadow-sm hover:shadow-lg transition-shadow duration-300 p-6 md:p-8">
+                  <header className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between mb-5">
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold mb-2">
+                        {exp.title}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-muted-foreground">
+                        <span className="flex items-center gap-2">
+                          <Building2
+                            size={16}
+                            className="text-brand"
+                            aria-hidden="true"
+                          />
+                          <span className="font-semibold text-foreground">
+                            {exp.company}
+                          </span>
+                        </span>
+                        <span className="flex items-center gap-2">
+                          <MapPin size={16} aria-hidden="true" />
+                          {exp.location}
+                        </span>
+                        <span className="flex items-center gap-2 font-mono text-sm">
+                          <Calendar size={16} aria-hidden="true" />
+                          {exp.duration}
+                        </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="bg-gradient-to-r from-blue-100 to-purple-100 px-4 py-2 rounded-full">
-                    <span className="text-sm font-semibold text-blue-800">
+                    <span className="self-start shrink-0 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
                       {exp.type}
                     </span>
-                  </div>
-                </div>
+                  </header>
 
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                    <Users size={20} className="text-blue-600" />
-                    Key Achievements
-                  </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 mb-6">
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-700 leading-relaxed">
+                        <span
+                          aria-hidden="true"
+                          className="w-1.5 h-1.5 bg-gradient-to-br from-brand to-brand-2 rounded-full mt-2.5 flex-shrink-0"
+                        />
+                        <span className="text-muted-foreground leading-relaxed">
                           {achievement}
                         </span>
                       </li>
                     ))}
                   </ul>
-                </div>
 
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                    <Server size={20} className="text-green-600" />
-                    Technologies Used
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <ul
+                    aria-label="Technologies used"
+                    className="flex flex-wrap gap-2"
+                  >
                     {exp.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 text-sm rounded-full border border-gray-200 hover:shadow-md transition-shadow"
-                      >
+                      <li key={tech} className="chip text-xs font-mono">
                         {tech}
-                      </span>
+                      </li>
                     ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+                  </ul>
+                </article>
+              </motion.li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
