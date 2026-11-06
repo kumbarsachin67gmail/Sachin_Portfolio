@@ -11,30 +11,30 @@ const About = () => {
         <Stagger className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           <StaggerItem>
             <p>
-              I am a senior software engineer focused on backend and distributed
-              systems, with a passion for creating efficient and user-friendly
-              applications. My expertise lies in Node.js and NestJS for back-end
-              services, React for the front end, and SQL for database
-              management. I have a strong background in building scalable and
-              maintainable applications, and I am always eager to learn new
-              technologies and improve my skills.
+              I'm a backend-focused senior engineer who builds the parts of
+              enterprise SaaS that have to be reliable: event-driven workflows,
+              integrations with third-party platforms, and services that scale.
+              Over six years I've worked mostly in Node.js, NestJS and
+              TypeScript on AWS, and lately I've been adding AI features to
+              production products with OpenAI and Azure OpenAI.
             </p>
           </StaggerItem>
 
           <StaggerItem>
             <p>
-              My professional journey has been marked by a commitment to
-              delivering high-quality solutions that meet the needs of users and
-              clients alike. In my free time, I enjoy exploring new coding
-              challenges and contributing to open-source projects.
+              Right now I work on Korn Ferry's KFAdvance platform. There I've
+              built a browser-based PowerPoint generation engine, a Smartsheet
+              integration that runs in both EU and US regions, and AI-assisted
+              editing tools. Before that, at Edvoy, I led a team of four
+              engineers building microservices for a student-recruitment
+              platform.
             </p>
           </StaggerItem>
 
           <StaggerItem>
             <p>
-              I believe in writing clean, maintainable code and following best
-              practices to ensure that applications are not only functional but
-              also sustainable for long-term growth and development.
+              I care about clean domain boundaries, systems that are boring to
+              operate, and code the next engineer can pick up easily.
             </p>
           </StaggerItem>
         </Stagger>

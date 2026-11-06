@@ -15,7 +15,7 @@ const ROTATING = [
 
 const STATS = [
   { value: 6, suffix: "+", label: "Years Experience" },
-  { value: 2, suffix: "", label: "Product Companies" },
+  { value: 30, suffix: "+", label: "Projects Worked On" },
   { value: 4, suffix: "", label: "Engineers Led" },
 ];
 

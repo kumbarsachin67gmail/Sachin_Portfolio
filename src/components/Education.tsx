@@ -4,11 +4,11 @@ import SectionHeading from "./SectionHeading";
 import { Reveal } from "./motion/Reveal";
 
 const edu = {
-  degree: "Bachelor of Technology",
-  field: "Electronics and Communication",
+  degree: "Bachelor of Engineering (B.E.)",
+  field: "Electronics and Communication Engineering",
   institution: "NMAM Institute of Technology",
   location: "Karnataka, India",
-  duration: "Aug 2018 – Jun 2020",
+  duration: "Aug 2016 – Jun 2020",
   description:
     "Specialized in embedded systems, digital signal processing, and communication protocols. Completed projects in IoT, microcontroller programming, and network analysis.",
   achievements: [

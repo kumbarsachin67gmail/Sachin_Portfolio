@@ -28,6 +28,7 @@ const projects: Project[] = [
     category: "Document Generation",
     description:
       "A browser-based engine that dynamically fills branded PowerPoint templates with editable text, native tables, charts and images, and downloads an editable .pptx.",
+    impact: "Reduced manual report preparation effort by 50%",
     technologies: ["React", "JSZip", "AWS S3"],
     features: [
       "Templates with placeholders are filled with data from the API",
@@ -48,7 +49,8 @@ const projects: Project[] = [
       "Summarization, tone adjustment and perspective rewriting",
       "Role-based validation for AI modifiers and dynamic prompts",
       "Upgraded from GPT-3.5 to GPT-4 with integrated guardrails",
-      "Audit logging and a progressive typing UX",
+      "Audit logging for traceable AI interactions",
+      "Progressive typing and dynamic response rendering for a responsive editing experience",
     ],
   },
   {
@@ -57,7 +59,7 @@ const projects: Project[] = [
     org: "Personal project",
     category: "Fintech",
     description:
-      "Simulated trading on live Upstox prices with OAuth, plus a stock screener built on hand-written technical indicators.",
+      "Full-stack paper trading on live NSE prices from the Upstox API, with OAuth login and a stock screener built on hand-written technical indicators.",
     technologies: [
       "React 18",
       "TypeScript",
@@ -69,8 +71,9 @@ const projects: Project[] = [
     ],
     features: [
       "Simulated trading on live Upstox prices with OAuth login",
-      "Stock screener with hand-written SMA, EMA, RSI, MACD and Bollinger Bands",
-      "pytest suite with an isolated database per test",
+      "Stock screener on daily candles with hand-written SMA, EMA, RSI, MACD and Bollinger Bands, without pandas or TA-Lib",
+      "SQLAlchemy 2 data layer that runs on SQLite locally and Neon Postgres in production",
+      "API covered by pytest, with an isolated database per test",
     ],
   },
   {
@@ -79,7 +82,7 @@ const projects: Project[] = [
     org: "Edvoy",
     category: "Enterprise Platform",
     description:
-      "Orchestrated the seamless integration of the Gmail API, facilitating real-time email communication capabilities within the application framework, enhancing collaboration and workflow efficiency for the Student Recruitment Team and Counsellors.",
+      "Integrated the Gmail API so recruitment teams and counsellors could send and receive email inside the platform instead of switching to their inbox.",
     detailedDescription:
       "Spearheaded the integration of B2B contracts, overseeing the development of commission templates and implementing dynamic dashboard functionalities.",
     technologies: [
@@ -108,7 +111,7 @@ const projects: Project[] = [
     org: "Edvoy",
     category: "Customer Relationship Management",
     description:
-      "Optimized search functionality with Elasticsearch integration and designed user-friendly dashboards tailored to counselor workflows, enhancing decision-making efficiency.",
+      "Built Elasticsearch-powered search and dashboards designed around how counsellors actually work, so they could find students and applications faster (20% faster search response time).",
     detailedDescription:
       "Collaborated with stakeholders to define CRM needs, developing APIs for seamless data exchange and integration with existing systems, ensuring industry-standard compliance.",
     technologies: [
@@ -126,8 +129,7 @@ const projects: Project[] = [
       "Seamless API integrations",
       "Industry-standard compliance",
     ],
-    impact:
-      "Improved search performance by 40% and enhanced counselor productivity",
+    impact: "Improved search response time by 20%",
     duration: "8 months",
     teamSize: "5 developers",
   },
@@ -137,7 +139,7 @@ const projects: Project[] = [
     org: "Edvoy",
     category: "Partnership Management",
     description:
-      "Led initiatives to optimize institution data integrity and streamline outbound agent workflows, enhancing the recruitment territory framework.",
+      "Migrated and cleaned institution data, and rebuilt the outbound agent workflows and territory framework that decide which agents handle which recruitment regions.",
     detailedDescription:
       "Spearheaded migration for merged institutions, resolving compatibility issues across diverse platforms, ensuring uninterrupted functionality.",
     technologies: [

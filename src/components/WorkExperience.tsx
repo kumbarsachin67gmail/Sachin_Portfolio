@@ -4,22 +4,41 @@ import { Calendar, MapPin, Building2 } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { EASE_OUT, VIEWPORT } from "@/lib/motion";
 
-const experiences = [
+type Experience = {
+  id: number;
+  title: string;
+  company: string;
+  client?: string;
+  location: string;
+  duration: string;
+  type: string;
+  achievements: string[];
+  technologies: string[];
+};
+
+const experiences: Experience[] = [
   {
     id: 1,
     title: "Senior Software Engineer",
-    company: "iSpace Technologies (Client: Korn Ferry, KFAdvance)",
+    company: "iSpace Technologies",
+    client:
+      "Client: Korn Ferry, a global organizational consulting firm. KFAdvance is its enterprise SaaS for leadership assessment, coaching and talent development.",
     location: "Hyderabad",
     duration: "Feb 2024 – Present",
     type: "Full-time",
     achievements: [
-      "Browser-based PowerPoint generation engine (React + JSZip) that dynamically fills branded templates with editable text, native tables, charts and images; version-controlled templates on AWS S3",
-      "Built the Smartsheet integration from scratch: EU and US region compliance, multi-template workflows, real-time job tracking",
-      "AI-powered notes editor with OpenAI / Azure OpenAI for summarization, tone adjustment and perspective transformation",
-      "Event-driven consent workflows on AWS EventBridge; configurable report system with PDF generation; secure document delivery with S3 signed URLs and RBAC",
+      "Built a browser-based PowerPoint generation engine (React, JSZip) that fills versioned, S3-hosted branded templates with editable text, tables, charts and images, reducing manual report preparation effort by 50%",
+      "Built the Smartsheet integration from scratch (EU/US region compliance, multi-template workflows, real-time job tracking), cutting manual setup effort by 35%",
+      "Built an AI-powered notes editor with OpenAI and Azure OpenAI for summarization, tone adjustment and perspective transformation",
+      "Optimized SQL queries and database operations for large-dataset synchronization, improving API response time by 25%",
+      "Designed event-driven consent-recording workflows on AWS EventBridge for downstream processing",
+      "Built a configurable report system with template selection, page-level customization and PDF generation",
+      "Built deep-cloning of engagement configurations with selective overrides, so teams can reuse complex setups across client engagements",
+      "Delivered documents securely with AWS S3 signed URLs and role-based access control",
     ],
     technologies: [
       "Node.js",
+      "TypeScript",
       "React",
       "Redux",
       "SQL",
@@ -32,23 +51,24 @@ const experiences = [
     ],
   },
   {
-    id: 3,
-    title: "Fullstack Engineer, Backend Developer",
+    id: 2,
+    title: "Fullstack Engineer",
     company: "Edvoy Technologies",
     location: "Chennai",
-    duration: "Jun 2021 – Jan 2024",
+    duration: "Nov 2020 – Jan 2024",
     type: "Full-time",
     achievements: [
-      "Implemented backend solutions using Nest.js and Node.js, utilized MongoDB for database management, developed microservices architecture for scalability",
-      "Integrated RMQ and Redis for efficient message queuing and caching, designed event-driven systems for asynchronous communication",
-      "Followed Domain-Driven Design principles for modular and maintainable code",
-      "Led a team of 4 developers, overseeing task assignment and ensuring timely delivery while providing technical guidance and mentorship",
-      "Additionally, developed Elasticsearch-based Dashboard, collaborated on Business Requirements with UI developers",
-      "Provided aligned technical solutions through stakeholder collaboration",
+      "Led a team of 4 developers: owned delivery timelines, planned and assigned work, reviewed code and mentored junior engineers",
+      "Built and maintained NestJS microservices on MongoDB and Redis, using Domain-Driven Design to keep services modular",
+      "Implemented RabbitMQ-based asynchronous processing pipelines, improving background processing efficiency by 20%",
+      "Built an Elasticsearch-based search engine and counsellor dashboards, improving search response time by 20%, which earned an Employee Appreciation Award (2023)",
+      "Built a configurable data-table system with saved custom and standard views, filtering and export, using pub/sub and file streaming for large datasets",
+      "Turned business requirements into technical designs together with product, UI and stakeholders",
     ],
     technologies: [
       "Nest.js",
       "Node.js",
+      "TypeScript",
       "MongoDB",
       "Redis",
       "RabbitMQ",
@@ -57,26 +77,7 @@ const experiences = [
     ],
   },
   {
-    id: 4,
-    title: "Jr Fullstack Engineer",
-    company: "Edvoy Technologies",
-    location: "Chennai",
-    duration: "Nov 2020 – May 2021",
-    type: "Full-time",
-    achievements: [
-      "Developed a customizable table data system utilizing Nest.js pub/sub model and file stream concepts",
-      "Implemented personalized views with filtering capabilities, allowing users to create custom or standard views and export data seamlessly",
-      "Led the design and development of client and server code, ensuring seamless functionality and optimal user experience",
-    ],
-    technologies: [
-      "Nest.js",
-      "TypeScript",
-      "File Streaming",
-      "Pub/Sub Pattern",
-    ],
-  },
-  {
-    id: 5,
+    id: 3,
     title: "Networking and Embedded System Intern",
     company: "Azure Skynet Solutions Pvt. Ltd, Vitvara Technologies",
     location: "Remote",
@@ -176,6 +177,11 @@ const WorkExperience = () => {
                           {exp.duration}
                         </span>
                       </div>
+                      {exp.client && (
+                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                          {exp.client}
+                        </p>
+                      )}
                     </div>
                     <span className="self-start shrink-0 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
                       {exp.type}

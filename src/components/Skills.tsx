@@ -24,12 +24,22 @@ const skillGroups = [
       "Event-Driven Architecture",
       "DDD",
       "CQRS",
+      "Agile (Scrum)",
     ],
   },
   {
-    title: "Frontend",
+    title: "Frontend & Testing",
     icon: Code,
-    skills: ["React", "Redux", "Vue.js", "Nuxt.js", "Material UI", "HTML/CSS"],
+    skills: [
+      "React",
+      "Redux",
+      "Vue.js",
+      "Nuxt.js",
+      "Material UI",
+      "HTML/CSS",
+      "Playwright (E2E)",
+      "pytest",
+    ],
   },
   {
     title: "Data & Messaging",
@@ -54,6 +64,8 @@ const skillGroups = [
       "Kubernetes",
       "CI/CD",
       "Git",
+      "GitLab",
+      "Jira",
     ],
   },
   {
@@ -62,6 +74,7 @@ const skillGroups = [
     skills: [
       "OpenAI",
       "Azure OpenAI",
+      "LLM Integration",
       "Claude Code (skills, MCP servers, plugins)",
       "Cursor",
     ],
