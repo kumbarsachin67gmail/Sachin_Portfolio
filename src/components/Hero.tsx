@@ -104,11 +104,11 @@ const Hero = () => {
 
             <StaggerItem>
               <p className="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                Senior Software Engineer with 6 years of experience designing
-                and developing scalable enterprise SaaS applications. Strong in
-                Node.js, TypeScript, React, microservices, distributed systems
-                and AWS. I build event-driven architectures and integrate AI
-                capabilities using OpenAI and Azure OpenAI.
+                Senior Software Engineer with 6 years building backend-heavy
+                enterprise SaaS in Node.js, TypeScript and AWS. I ship
+                integration-heavy features end to end: document generation,
+                third-party platform integrations (Smartsheet, Gmail) and
+                production AI features with OpenAI and Azure OpenAI.
               </p>
             </StaggerItem>
 

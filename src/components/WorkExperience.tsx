@@ -54,16 +54,17 @@ const experiences: Experience[] = [
     id: 2,
     title: "Fullstack Engineer",
     company: "Edvoy Technologies",
+    client:
+      "Student-recruitment platform (B2B and B2C) connecting students, counsellors, universities and agents.",
     location: "Chennai",
     duration: "Nov 2020 – Jan 2024",
     type: "Full-time",
     achievements: [
-      "Led a team of 4 developers: owned delivery timelines, planned and assigned work, reviewed code and mentored junior engineers",
-      "Built and maintained NestJS microservices on MongoDB and Redis, using Domain-Driven Design to keep services modular",
-      "Implemented RabbitMQ-based asynchronous processing pipelines, improving background processing efficiency by 20%",
-      "Built an Elasticsearch-based search engine and counsellor dashboards, improving search response time by 20%, which earned an Employee Appreciation Award (2023)",
-      "Built a configurable data-table system with saved custom and standard views, filtering and export, using pub/sub and file streaming for large datasets",
-      "Turned business requirements into technical designs together with product, UI and stakeholders",
+      "Led a team of 4 developers: planned and assigned work, owned delivery timelines, reviewed code and mentored junior engineers",
+      "Built NestJS microservices on MongoDB and Redis using Domain-Driven Design, with RabbitMQ-based asynchronous pipelines that improved background processing efficiency by 20%",
+      "Built the Elasticsearch-powered search engine and counsellor dashboards for the CRM, improving search response time by 20% (Employee Appreciation Award, 2023)",
+      "Integrated the Gmail API into Edvoy-edge (B2B) so counsellors could send and receive email inside the platform",
+      "Rebuilt the Partnership Module's agent workflows and territory framework after migrating institution data, and built a configurable data-table system with saved views, filtering and streamed exports",
     ],
     technologies: [
       "Nest.js",
