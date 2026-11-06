@@ -6,7 +6,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+  <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
     <MotionConfig reducedMotion="user">
       <Toaster position="bottom-center" />
       <BrowserRouter>

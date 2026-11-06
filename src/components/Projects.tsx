@@ -168,6 +168,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <TiltCard className="group relative h-full">
       <article className="relative h-full overflow-hidden rounded-2xl border bg-card text-card-foreground p-6 shadow-sm transition-[border-color,box-shadow] duration-300 group-hover:border-brand/50 group-hover:shadow-[0_12px_40px_-12px_hsl(var(--brand)/0.45)]">
+        {/* Cursor spotlight (position set by TiltCard) */}
+        <span
+          aria-hidden="true"
+          className="spotlight pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 [--spot-alpha:0.12] [--spot-size:400px] group-hover:opacity-100 motion-reduce:hidden"
+        />
         {/* Accent line that lights up on hover */}
         <span
           aria-hidden="true"

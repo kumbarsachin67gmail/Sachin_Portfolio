@@ -53,32 +53,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 224 47% 6%;
-    --foreground: 210 40% 96%;
+    /* Near-black (#0a0a0b) with neutral grey surfaces */
+    --background: 240 5% 4%;
+    --foreground: 0 0% 96%;
 
-    --card: 223 40% 9%;
-    --card-foreground: 210 40% 96%;
+    --card: 240 4% 8%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 223 40% 9%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 240 4% 8%;
+    --popover-foreground: 0 0% 96%;
 
     --primary: 213 94% 68%;
-    --primary-foreground: 224 47% 8%;
+    --primary-foreground: 240 5% 6%;
 
-    --secondary: 217 33% 15%;
-    --secondary-foreground: 210 40% 96%;
+    --secondary: 240 4% 13%;
+    --secondary-foreground: 0 0% 92%;
 
-    --muted: 217 33% 13%;
-    --muted-foreground: 215 20% 70%;
+    --muted: 240 4% 11%;
+    --muted-foreground: 240 5% 66%;
 
-    --accent: 217 33% 18%;
-    --accent-foreground: 210 40% 96%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 96%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 30% 18%;
-    --input: 217 30% 18%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
     --ring: 213 94% 68%;
 
     --brand: 213 94% 68%;
@@ -120,6 +121,25 @@ All colors MUST be HSL.
 }
 
 @layer components {
+  /* Faint dot grid that fades out toward the edges */
+  .bg-dot-grid {
+    background-image: radial-gradient(
+      hsl(0 0% 100% / 0.09) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  }
+
+  /* Soft glow that follows the cursor; position comes from --x/--y */
+  .spotlight {
+    background: radial-gradient(
+      var(--spot-size, 600px) circle at var(--x, 50%) var(--y, 50%),
+      hsl(var(--brand) / var(--spot-alpha, 0.14)),
+      transparent 45%
+    );
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-brand to-brand-2 bg-clip-text text-transparent;
   }

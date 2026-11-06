@@ -9,7 +9,7 @@
       content="Sachin Kumbar is a Senior Software Engineer in Bengaluru with 6 years of experience building scalable enterprise SaaS: Node.js, TypeScript, React, microservices, event-driven systems on AWS, and AI integration with OpenAI."
     />
     <meta name="author" content="Sachin Kumbar" />
-    <meta name="theme-color" content="#0b1120" />
+    <meta name="theme-color" content="#0a0a0b" />
     <link rel="canonical" href="https://www.sachinkumbar.in/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -34,9 +34,10 @@
     <script>
       try {
         var t = localStorage.getItem("theme");
+        // Dark by default; light only when chosen
         var dark =
-          t === "dark" ||
-          ((!t || t === "system") &&
+          t !== "light" &&
+          (t !== "system" ||
             window.matchMedia("(prefers-color-scheme: dark)").matches);
         document.documentElement.classList.toggle("dark", dark);
       } catch (e) {}

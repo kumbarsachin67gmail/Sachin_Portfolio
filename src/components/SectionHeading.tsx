@@ -1,5 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Reveal } from "./motion/Reveal";
+import { EASE_OUT, VIEWPORT } from "@/lib/motion";
 
 type SectionHeadingProps = {
   id: string;
@@ -15,7 +17,14 @@ const SectionHeading = ({ id, title, subtitle }: SectionHeadingProps) => (
     >
       {title}
     </h2>
-    <div className="w-24 h-1 bg-gradient-to-r from-brand to-brand-2 mx-auto rounded-full" />
+    {/* Underline draws in from the centre */}
+    <motion.div
+      className="w-24 h-1 bg-gradient-to-r from-brand to-brand-2 mx-auto rounded-full"
+      initial={{ scaleX: 0 }}
+      whileInView={{ scaleX: 1 }}
+      viewport={VIEWPORT}
+      transition={{ duration: 0.6, delay: 0.2, ease: EASE_OUT }}
+    />
     {subtitle && (
       <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
         {subtitle}

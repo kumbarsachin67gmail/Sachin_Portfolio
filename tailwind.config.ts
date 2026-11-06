@@ -95,6 +95,10 @@ export default {
 					'33%': { transform: 'translate(30px, -40px) scale(1.08)' },
 					'66%': { transform: 'translate(-20px, 20px) scale(0.95)' }
 				},
+				shimmer: {
+					'0%': { backgroundPosition: '0% 50%' },
+					'100%': { backgroundPosition: '200% 50%' }
+				},
 				blink: {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0' }
@@ -104,7 +108,9 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				blob: 'blob 18s ease-in-out infinite',
-				blink: 'blink 1s step-end infinite'
+				blink: 'blink 1s step-end infinite',
+				shimmer: 'shimmer 8s linear infinite',
+				'spin-slow': 'spin 10s linear infinite'
 			}
 		}
 	},

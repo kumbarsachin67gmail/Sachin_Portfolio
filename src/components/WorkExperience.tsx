@@ -138,7 +138,13 @@ const WorkExperience = () => {
                 viewport={VIEWPORT}
                 transition={{ duration: 0.6, ease: EASE_OUT }}
               >
-                {/* Timeline dot */}
+                {/* Timeline dot; the current role pulses */}
+                {exp.duration.includes("Present") && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 top-7 h-6 w-6 rounded-full bg-brand/50 motion-safe:animate-ping"
+                  />
+                )}
                 <span
                   aria-hidden="true"
                   className="absolute left-0 top-7 h-6 w-6 rounded-full border-4 border-background bg-gradient-to-br from-brand to-brand-2 shadow-md"

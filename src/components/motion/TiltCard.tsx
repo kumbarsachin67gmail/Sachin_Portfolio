@@ -5,6 +5,7 @@ import {
   useReducedMotion,
   useSpring,
 } from "framer-motion";
+import { trackPointer } from "@/lib/motion";
 
 const MAX_TILT = 6; // degrees
 
@@ -26,6 +27,7 @@ const TiltCard = ({
 
   const handleMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType !== "mouse") return;
+    trackPointer(e);
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;

@@ -1,3 +1,4 @@
+import type React from "react";
 import type { Variants } from "framer-motion";
 
 export const EASE_OUT = [0.22, 1, 0.36, 1] as const;
@@ -18,3 +19,11 @@ export const stagger = (gap = 0.08, delayChildren = 0): Variants => ({
 });
 
 export const VIEWPORT = { once: true, margin: "0px 0px -80px 0px" } as const;
+
+/** Stores the pointer position as --x/--y on the element, for the .spotlight glow. */
+export const trackPointer = (e: React.PointerEvent<HTMLElement>) => {
+  if (e.pointerType !== "mouse") return;
+  const rect = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty("--x", `${e.clientX - rect.left}px`);
+  e.currentTarget.style.setProperty("--y", `${e.clientY - rect.top}px`);
+};

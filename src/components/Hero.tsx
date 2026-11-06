@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { animate, useInView, useReducedMotion } from "framer-motion";
 import { MapPin, Mail, Copy, Github, Linkedin, Download } from "lucide-react";
 import { Stagger, StaggerItem } from "./motion/Reveal";
+import Magnetic from "./motion/Magnetic";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import { trackPointer } from "@/lib/motion";
 import { SITE, copyEmail, scrollToSection } from "@/lib/site";
 
 const ROTATING = [
@@ -52,14 +54,17 @@ const Hero = () => {
     <section
       id="home"
       aria-label="Introduction"
-      className="relative isolate overflow-hidden pt-28 pb-20 px-6 bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white"
+      onPointerMove={trackPointer}
+      className="group/hero relative isolate overflow-hidden pt-28 pb-20 px-6 bg-[#0a0a0b] text-white"
     >
-      {/* Slow floating blobs */}
+      {/* Slow floating blobs, dot grid and cursor spotlight */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
       >
-        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-blue-500/25 blur-3xl will-change-transform motion-safe:animate-blob" />
+        <div className="bg-dot-grid absolute inset-0" />
+        <div className="spotlight absolute inset-0 opacity-0 transition-opacity duration-500 group-hover/hero:opacity-100 motion-reduce:hidden" />
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl will-change-transform motion-safe:animate-blob" />
         <div className="absolute top-1/3 -right-24 h-[28rem] w-[28rem] rounded-full bg-purple-500/20 blur-3xl will-change-transform motion-safe:animate-blob [animation-delay:-6s]" />
         <div className="absolute -bottom-32 left-1/3 h-80 w-80 rounded-full bg-cyan-400/15 blur-3xl will-change-transform motion-safe:animate-blob [animation-delay:-12s]" />
       </div>
@@ -70,7 +75,7 @@ const Hero = () => {
           <Stagger className="text-center lg:text-left" gap={0.1}>
             <StaggerItem>
               <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight tracking-tight">
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-[length:200%_auto] bg-clip-text text-transparent motion-safe:animate-shimmer">
                   SACHIN KUMBAR
                 </span>
               </h1>
@@ -98,7 +103,7 @@ const Hero = () => {
             </StaggerItem>
 
             <StaggerItem>
-              <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
+              <p className="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
                 Senior Software Engineer with 6 years of experience designing
                 and developing scalable enterprise SaaS applications. Strong in
                 Node.js, TypeScript, React, microservices, distributed systems
@@ -115,7 +120,7 @@ const Hero = () => {
                     <dd className="text-3xl md:text-4xl font-bold text-blue-300 mb-1 tabular-nums">
                       <CountUp to={stat.value} suffix={stat.suffix} />
                     </dd>
-                    <dt className="text-sm text-slate-400">{stat.label}</dt>
+                    <dt className="text-sm text-zinc-400">{stat.label}</dt>
                   </div>
                 ))}
               </dl>
@@ -124,21 +129,25 @@ const Hero = () => {
             {/* CTA Buttons */}
             <StaggerItem>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a
-                  href={SITE.resume}
-                  download
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold shadow-lg shadow-blue-900/40 transition-transform duration-200 hover:scale-[1.03] hover:shadow-xl active:scale-[0.98] motion-reduce:transform-none"
-                >
-                  <Download size={18} aria-hidden="true" />
-                  Download Resume
-                </a>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection("contact")}
-                  className="px-8 py-4 border-2 border-blue-400 rounded-full font-semibold transition-all duration-200 hover:bg-blue-400 hover:text-slate-950 hover:scale-[1.03] active:scale-[0.98] motion-reduce:transform-none"
-                >
-                  Get In Touch
-                </button>
+                <Magnetic className="flex flex-col">
+                  <a
+                    href={SITE.resume}
+                    download
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold shadow-lg shadow-blue-900/40 transition-transform duration-200 hover:scale-[1.03] hover:shadow-xl active:scale-[0.98] motion-reduce:transform-none"
+                  >
+                    <Download size={18} aria-hidden="true" />
+                    Download Resume
+                  </a>
+                </Magnetic>
+                <Magnetic className="flex flex-col">
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection("contact")}
+                    className="px-8 py-4 border-2 border-blue-400 rounded-full font-semibold transition-all duration-200 hover:bg-blue-400 hover:text-slate-950 hover:scale-[1.03] active:scale-[0.98] motion-reduce:transform-none"
+                  >
+                    Get In Touch
+                  </button>
+                </Magnetic>
               </div>
             </StaggerItem>
           </Stagger>
@@ -146,7 +155,16 @@ const Hero = () => {
           {/* Right Side - Profile & Contact */}
           <Stagger className="space-y-8" gap={0.12} delay={0.15}>
             <StaggerItem className="text-center">
-              <div className="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-purple-500 p-1 shadow-2xl shadow-purple-900/40">
+              <div className="relative w-56 h-56 md:w-64 md:h-64 mx-auto">
+                {/* Rotating gradient ring with a soft glow */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-1 rounded-full bg-[conic-gradient(from_0deg,#60a5fa,#a855f7,#22d3ee,#60a5fa)] opacity-60 blur-lg motion-safe:animate-spin-slow"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#60a5fa,#a855f7,#22d3ee,#60a5fa)] motion-safe:animate-spin-slow"
+                />
                 <img
                   src="/profile.jpg"
                   alt="Portrait of Sachin Kumbar"
@@ -154,7 +172,7 @@ const Hero = () => {
                   height={560}
                   // React 18 only forwards the lowercase attribute
                   {...{ fetchpriority: "high" }}
-                  className="w-full h-full rounded-full object-cover object-[50%_20%]"
+                  className="absolute inset-1 h-[calc(100%-0.5rem)] w-[calc(100%-0.5rem)] rounded-full object-cover object-[50%_20%] bg-[#0a0a0b]"
                 />
               </div>
             </StaggerItem>
@@ -175,7 +193,7 @@ const Hero = () => {
                       <Mail size={20} aria-hidden="true" />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block text-sm text-slate-400">
+                      <span className="block text-sm text-zinc-400">
                         Email · click to copy
                       </span>
                       <span className="block font-semibold break-all">
@@ -185,7 +203,7 @@ const Hero = () => {
                     <Copy
                       size={18}
                       aria-hidden="true"
-                      className="shrink-0 text-slate-400 transition-colors group-hover:text-white"
+                      className="shrink-0 text-zinc-400 transition-colors group-hover:text-white"
                     />
                   </button>
 
@@ -194,7 +212,7 @@ const Hero = () => {
                       <MapPin size={20} aria-hidden="true" />
                     </span>
                     <div>
-                      <div className="text-sm text-slate-400">Location</div>
+                      <div className="text-sm text-zinc-400">Location</div>
                       <div className="font-semibold">{SITE.location}</div>
                     </div>
                   </div>
