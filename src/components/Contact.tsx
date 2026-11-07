@@ -23,11 +23,7 @@ const Contact = () => {
 
         <Stagger as="ul" className="grid gap-6 sm:grid-cols-3">
           <StaggerItem as="li">
-            <button
-              type="button"
-              onClick={copyEmail}
-              className={cardClass}
-            >
+            <button type="button" onClick={copyEmail} className={cardClass}>
               <span className="rounded-full bg-accent p-3 text-brand">
                 <Mail size={22} aria-hidden="true" />
               </span>
@@ -53,7 +49,7 @@ const Contact = () => {
               </span>
               <span className="font-semibold">LinkedIn</span>
               <span className="text-sm text-muted-foreground">
-                sachin-kumbar-634b42171
+                sachinkumbar
               </span>
               <span className="mt-auto inline-flex items-center gap-1 font-mono text-xs text-muted-foreground group-hover:text-brand">
                 open profile <ArrowUpRight size={14} aria-hidden="true" />

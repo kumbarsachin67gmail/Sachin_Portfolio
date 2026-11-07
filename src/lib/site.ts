@@ -7,7 +7,7 @@ export const SITE = {
   email: "kumbarsachin67@gmail.com",
   location: "Bengaluru, Karnataka",
   github: "https://github.com/kumbarsachin67gmail",
-  linkedin: "https://www.linkedin.com/in/sachin-kumbar-634b42171",
+  linkedin: "https://www.linkedin.com/in/sachinkumbar",
   resume: "/Sachin_Kumbar_Resume.pdf",
 };
 
