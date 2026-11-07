@@ -154,27 +154,34 @@ const Hero = () => {
 
           {/* Right Side - Profile & Contact */}
           <Stagger className="space-y-8" gap={0.12} delay={0.15}>
-            <StaggerItem className="text-center">
-              <div className="relative w-56 h-56 md:w-64 md:h-64 mx-auto">
-                {/* Rotating gradient ring with a soft glow */}
+            <StaggerItem>
+              <figure className="relative mx-auto w-64 sm:w-72 md:w-80">
+                {/* Purple glow behind the cut-out portrait */}
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-1 rounded-full bg-[conic-gradient(from_0deg,#60a5fa,#a855f7,#22d3ee,#60a5fa)] opacity-60 blur-lg motion-safe:animate-spin-slow"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#60a5fa,#a855f7,#22d3ee,#60a5fa)] motion-safe:animate-spin-slow"
+                  className="absolute inset-x-[-15%] top-[10%] bottom-0 rounded-full bg-[radial-gradient(closest-side,rgba(139,92,246,0.8),rgba(99,102,241,0.3)_55%,transparent)] blur-2xl motion-safe:animate-glow"
                 />
                 <img
-                  src="/profile.jpg"
+                  src="/profile-cutout.webp"
                   alt="Portrait of Sachin Kumbar"
-                  width={482}
-                  height={560}
+                  width={567}
+                  height={693}
                   // React 18 only forwards the lowercase attribute
                   {...{ fetchpriority: "high" }}
-                  className="absolute inset-1 h-[calc(100%-0.5rem)] w-[calc(100%-0.5rem)] rounded-full object-cover object-[50%_20%] bg-[#0a0a0b]"
+                  className="relative w-full h-auto [mask-image:linear-gradient(to_bottom,black_60%,transparent_95%)]"
                 />
-              </div>
+                <figcaption className="absolute inset-x-0 bottom-2 text-center [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
+                  <span className="block text-xl md:text-2xl font-bold">
+                    Sachin Kumbar
+                  </span>
+                  <span className="block text-sm md:text-base text-zinc-400">
+                    Senior Software Engineer
+                  </span>
+                  <span className="block text-sm md:text-base text-zinc-300">
+                    iSpace Technologies · Korn Ferry
+                  </span>
+                </figcaption>
+              </figure>
             </StaggerItem>
 
             <StaggerItem>

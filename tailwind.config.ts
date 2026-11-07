@@ -102,6 +102,10 @@ export default {
 				blink: {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0' }
+				},
+				glow: {
+					'0%, 100%': { opacity: '0.75', transform: 'scale(1)' },
+					'50%': { opacity: '1', transform: 'scale(1.06)' }
 				}
 			},
 			animation: {
@@ -110,7 +114,7 @@ export default {
 				blob: 'blob 18s ease-in-out infinite',
 				blink: 'blink 1s step-end infinite',
 				shimmer: 'shimmer 8s linear infinite',
-				'spin-slow': 'spin 10s linear infinite'
+				glow: 'glow 6s ease-in-out infinite'
 			}
 		}
 	},
