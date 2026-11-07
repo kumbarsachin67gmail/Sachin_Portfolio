@@ -14,6 +14,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sachin Kumbar" />
     <meta property="og:url" content="https://www.sachinkumbar.in/" />
     <meta property="og:title" content="Sachin Kumbar | Senior Software Engineer" />
     <meta
@@ -29,6 +30,54 @@
       content="Backend & distributed systems engineer: Node.js, TypeScript, AWS, event-driven architecture and AI integration."
     />
     <meta name="twitter:image" content="https://www.sachinkumbar.in/profile.jpg" />
+
+    <!-- Tells search engines this site is the person Sachin Kumbar -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.sachinkumbar.in/#website",
+            "url": "https://www.sachinkumbar.in/",
+            "name": "Sachin Kumbar",
+            "about": { "@id": "https://www.sachinkumbar.in/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.sachinkumbar.in/#person",
+            "name": "Sachin Kumbar",
+            "url": "https://www.sachinkumbar.in/",
+            "image": "https://www.sachinkumbar.in/profile.jpg",
+            "jobTitle": "Senior Software Engineer",
+            "worksFor": { "@type": "Organization", "name": "iSpace Technologies" },
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "NMAM Institute of Technology"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "addressCountry": "IN"
+            },
+            "knowsAbout": [
+              "Node.js",
+              "TypeScript",
+              "AWS",
+              "Distributed Systems",
+              "Event-Driven Architecture",
+              "Microservices",
+              "AI Integration"
+            ],
+            "sameAs": [
+              "https://www.linkedin.com/in/sachinkumbar",
+              "https://github.com/kumbarsachin67gmail"
+            ]
+          }
+        ]
+      }
+    </script>
 
     <!-- Apply the saved theme before first paint to avoid a flash -->
     <script>
