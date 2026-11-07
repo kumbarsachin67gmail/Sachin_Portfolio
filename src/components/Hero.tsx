@@ -155,7 +155,7 @@ const Hero = () => {
           {/* Right Side - Profile & Contact */}
           <Stagger className="space-y-8" gap={0.12} delay={0.15}>
             <StaggerItem>
-              <figure className="relative mx-auto w-64 sm:w-72 md:w-80">
+              <div className="relative mx-auto w-64 sm:w-72 md:w-80">
                 {/* Purple glow behind the cut-out portrait */}
                 <div
                   aria-hidden="true"
@@ -170,18 +170,7 @@ const Hero = () => {
                   {...{ fetchpriority: "high" }}
                   className="relative w-full h-auto [mask-image:linear-gradient(to_bottom,black_60%,transparent_95%)]"
                 />
-                <figcaption className="absolute inset-x-0 bottom-2 text-center [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
-                  <span className="block text-xl md:text-2xl font-bold">
-                    Sachin Kumbar
-                  </span>
-                  <span className="block text-sm md:text-base text-zinc-400">
-                    Senior Software Engineer
-                  </span>
-                  <span className="block text-sm md:text-base text-zinc-300">
-                    iSpace Technologies · Korn Ferry
-                  </span>
-                </figcaption>
-              </figure>
+              </div>
             </StaggerItem>
 
             <StaggerItem>
